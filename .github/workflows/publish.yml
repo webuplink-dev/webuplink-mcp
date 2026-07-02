@@ -1,4 +1,4 @@
-name: Publish to npm
+name: Publish
 
 on:
   release:
@@ -30,3 +30,11 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm publish --provenance --access public
+      - name: Publish to MCP Registry
+        env:
+          MCP_REGISTRY_PRIVATE_KEY: ${{ secrets.MCP_REGISTRY_PRIVATE_KEY }}
+        run: |
+          curl -fsSL https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher-linux-amd64 -o /usr/local/bin/mcp-publisher
+          chmod +x /usr/local/bin/mcp-publisher
+          mcp-publisher login dns --domain webuplink.ai --private-key "$MCP_REGISTRY_PRIVATE_KEY"
+          mcp-publisher publish
