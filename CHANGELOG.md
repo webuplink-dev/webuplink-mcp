@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 (2026-07-02)
+
+### Changes
+
+- MCP registry metadata: `mcpName` (`ai.webuplink/mcp`) in `package.json` plus a `server.json` for publishing to the official MCP registry
+- `webuplink` dependency bumped to `^0.1.1`, picking up the new error codes (`CONCURRENCY_EXCEEDED`, `CONCURRENCY_UNAVAILABLE`, `FREE_TIER_DEGRADED`, `SITE_BLOCKED`)
+
 ## 0.1.0 (2026-06-30)
 
 Initial public release.

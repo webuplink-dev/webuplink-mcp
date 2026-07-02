@@ -44,7 +44,7 @@ function withErrorHandling(
 export function createServer(client: WebUplink): McpServer {
   const server = new McpServer({
     name: 'webuplink',
-    version: '0.1.0',
+    version: '0.1.1',
   });
 
   // ── Tool 1: browse ──────────────────────────────────────────
